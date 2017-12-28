@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<!--
+	Idea came from Nicolas Chan's 3D Tic Tac Toe
+	Created by Kung-Min Lin
+-->
+
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>3D Super Tic Tac Toe</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	</head>
+	<style>
+
+		body { margin: 0; padding: 0; overflow: hidden; }
+		#canvas { width: 100vw; height: 100vh; }
+		#info { 
+			font-size: 20px;
+			padding: 20px;
+			padding-top: 0;
+			position: absolute; 
+			width: 25%; 
+			height: 100vh;
+			z-index: 1; 
+			display: block; 
+			right: 0;
+			box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+			background-color: rgba(255, 255, 255, 0.6);
+			overflow-y: auto;
+		}
+			#info h1 {
+				font-weight: 500;
+				font-size: 30px;
+				text-align: right;
+			}
+			#info h2 {
+				font-weight: bold;
+				font-size: 15px;
+				color: #00796b;
+			}
+			#info p {
+				font-size: 15px;
+			}
+		#hide-info {
+			position: absolute;
+			right: 1%;
+			bottom: 1%;
+			z-index: 2;
+			transform: rotate(-90deg);
+		}
+			#hide-info:hover {
+				box-shadow: 0 0 10px 0 #000000;
+			}
+
+		#camera-reset {
+			position: absolute;
+			left: 1%;
+			top: 1%;
+			z-index: 2;
+		}
+
+			#camera-reset:hover {
+				transform: rotate(-45deg);
+			}
+
+		#zoom {
+			position: absolute;
+			left: 1%;
+			top: 10%;
+			z-index: 2;
+		}
+
+	</style>
+	<body>
+
+
+		<a class="btn-floating btn-large waves-effect waves-light teal darken-2" id="camera-reset"><i class="material-icons">cached</i></a>
+		<a class="btn-floating btn-large waves-effect waves-light red" id="hide-info"><i class="material-icons">arrow_drop_down</i></a>
+		<div id="info">
+			<h1>3D Super Tic Tac Toe</h1>
+			<h2>About</h2>
+			<p>Inspired by 3D Tic Tac Toe created by <a href="https://nicolaschan.github.io/">Nicolas Chan</a>, 3D Super Tic Tac Toe takes the game to a whole new level. With 729 spaces to conquer, you can no longer block your opponent with one simple move. The minimum amount of moves required to win the game is 15, contrary to 5 moves in normal Tic Tac Toe. Furthermore, if we do not consider the final move, this game has 1552472747942425344000 possible combinations! (Total possible combinations for the final move requires the computing power of a quantum or super computer to calculate)</p>
+			<h2>Rules</h2>
+			<p>Get 9 blocks in a row to win. Note that you can also go diagonally across the entire playing field. There are 729 paths to win this game</p>
+			<p>The red transparent block indicates the section where you are allowed to place your block. This block moves each round based on player move to add complexity to the game</p>
+			<div class="switch">
+			    <label>
+			    	<p style="display:inline;color:black;padding-right:20px">Show Grid</p>
+			   		Off
+			      	<input type="checkbox" id="gridOn" checked>
+			      	<span class="lever"></span>
+			      	On
+			    </label>
+			</div>
+		</div>
+		<div id="canvas"></div>
+
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<script src='../assets/three.js/build/three.js'></script>
+		<script src='../assets/three.js/examples/js/controls/OrbitControls.js'></script>
+		<script src='../assets/three.js/examples/js/controls/TrackballControls.js'></script>
+		<script src='./index.js'></script>
+		
+	</body>
+</html>
